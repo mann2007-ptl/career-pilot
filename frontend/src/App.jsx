@@ -11,6 +11,7 @@ import AppLayout from './components/AppLayout';
 import Footer from './components/ui/Footer';
 
 import CommandPalette from './components/CommandPalette';
+import BackToTop from './components/BackToTop';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -114,6 +115,7 @@ function AppRoutes() {
         />
       )}
       <div className="bg-mesh" />
+      <BackToTop />
       <Toaster
         position="top-right"
         toastOptions={{
