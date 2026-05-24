@@ -86,6 +86,9 @@ function CrystalShape({ className, style }) {
 }
 
 export default function PrismEffect() {
+  const gradientId = useId().replace(/:/g, '');
+  const beamGradId = `beamGrad-${gradientId}`;
+
   return (
     <section className="relative w-full overflow-hidden bg-[#0a0a0f] text-white">
       <style>{`
@@ -188,7 +191,7 @@ export default function PrismEffect() {
             aria-hidden="true"
           >
             <defs>
-              <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient id={beamGradId} x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#22d3ee" stopOpacity="0" />
                 <stop offset="30%" stopColor="#a855f7" stopOpacity="0.6" />
                 <stop offset="60%" stopColor="#ec4899" stopOpacity="0.5" />
@@ -204,7 +207,7 @@ export default function PrismEffect() {
                   y1="100"
                   x2={200 + Math.cos((angle * Math.PI) / 180) * 180}
                   y2={100 + Math.sin((angle * Math.PI) / 180) * 80}
-                  stroke="url(#beamGrad)"
+                  stroke={`url(#${beamGradId})`}
                   strokeWidth="2"
                   className="prism-beam-pulse"
                   style={{ animationDelay: `${i * 0.4}s` }}
